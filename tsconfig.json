@@ -29,6 +29,9 @@
       ],
       "@models/*": [
         "src/models/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
       ]
     }
   }

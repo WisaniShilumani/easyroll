@@ -2,6 +2,7 @@ export interface Employee {
     id: number
     firstName: string
     lastName: string
-    pension: number
+    annualIncome: string
+    pensionContribution: number
     paymentDate: string
   }

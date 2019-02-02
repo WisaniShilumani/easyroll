@@ -7,9 +7,15 @@ import { Payslip } from '@models/payslip.model'
 })
 export class PayslipTableComponent implements OnInit {
   @Input() payslips: Payslip[] = []
+  @Input() pensionContribution: number
+  @Input() displayName: string
+  activePayslip: number
   constructor() { }
 
   ngOnInit() {
   }
 
+  viewPayslip (payslip: string) {
+    this.activePayslip = +payslip
+  }
 }

@@ -1,8 +1,8 @@
-<div class="table-row-container">
+<div (click)="viewEmployeeDetails()" class="table-row-container">
   <div>{{ employee.id }}</div>
   <div>{{ employee.firstName }}</div>
   <div>{{ employee.lastName }}</div>
-  <div>{{ employee.pension }}%</div>
+  <div>R{{ employee.annualIncome }}</div>
+  <div>{{ employee.pensionContribution }}%</div>
   <div>{{ employee.paymentDate | date: 'mediumDate' }}</div>
-  <div><button (click)="viewEmployeeDetails()">View</button></div>
 </div>

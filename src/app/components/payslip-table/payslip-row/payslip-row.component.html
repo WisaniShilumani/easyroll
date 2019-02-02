@@ -1,9 +1,12 @@
 <div class="table-row-container">
   <div>{{ payslip.period }}</div>
-  <div>{{ thousands(payslip.grossIncome) }}</div>
-  <div><button (click)="expandPayslip()">View</button></div>
+  <div><button *ngIf="!showDetails" (click)="expandPayslip()">Display payslip</button></div>
+  <div></div>
 </div>
-<div *ngIf="showPayslip">
-  Payslip details
+<div class="payslip-details" *ngIf="showDetails">
+  <payslip-summary
+    [summary]="payslipSummary"
+    [displayName]="displayName"
+  ></payslip-summary>
 </div>
   

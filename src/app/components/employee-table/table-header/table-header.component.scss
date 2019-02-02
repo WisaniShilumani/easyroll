@@ -8,7 +8,7 @@
   .table-header {
     display: grid;
     grid-area: header;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: calculateRem(50) repeat(5, 1fr);
 
     > div {
       padding: calculateRem(13) 0;

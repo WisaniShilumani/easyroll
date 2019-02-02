@@ -1,0 +1,38 @@
+@import './functions/calculateRem.scss';
+@import './variables/colors.scss';
+
+.payslip-summary-container {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "row row";
+  
+  $grid-columns: repeat(5, 1fr);
+  .header {
+    display: grid;
+    grid-template-columns: $grid-columns;
+    grid-area: header;
+    background: $mediumGrey;
+    color: white;
+    padding: 0 calculateRem(13);
+
+    > div {
+      display: flex;
+      align-items: center;
+      padding: calculateRem(13) 0;
+    }
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: $grid-columns;
+    grid-area: row;
+    padding: 0 calculateRem(13);
+    
+    > div {
+      display: flex;
+      align-items: center;
+      padding: calculateRem(13) 0;
+    }
+  }
+}

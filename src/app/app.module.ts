@@ -21,7 +21,8 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { PayslipTableComponent } from './components/payslip-table/payslip-table.component'
 import { PayslipResolverService } from './services/resolvers/payslip';
 import { PayslipTableHeaderComponent } from './components/payslip-table/payslip-table-header/payslip-table-header.component';
-import { PayslipRowComponent } from './components/payslip-table/payslip-row/payslip-row.component'
+import { PayslipRowComponent } from './components/payslip-table/payslip-row/payslip-row.component';
+import { PayslipSummaryComponent } from './components/payslip-summary/payslip-summary.component'
 
 export const environment = {
   production: false
@@ -40,7 +41,8 @@ export const environment = {
     MainNavComponent,
     PayslipTableComponent,
     PayslipTableHeaderComponent,
-    PayslipRowComponent
+    PayslipRowComponent,
+    PayslipSummaryComponent
   ],
   imports: [
     BrowserModule,

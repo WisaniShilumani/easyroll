@@ -1,5 +1,6 @@
 @import './functions/calculateRem.scss';
 @import './variables/colors.scss';
+@import './mixins/button.scss';
 
 .header-container {
   padding: 0 calculateRem(13);
@@ -8,12 +9,34 @@
   .table-header {
     display: grid;
     grid-area: header;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr) calculateRem(220);
 
     > div {
       padding: calculateRem(13) 0;
       font-weight: bold;
       color: white;
+      display: flex;
+      align-items: center;
+
+      &.add-payslip {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          @include button();
+          height: calculateRem(32);
+          border-radius: calculateRem(16);
+          padding: calculateRem(7) calculateRem(24);
+          background: white;
+          font-weight: 900;
+          color: $primary;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          line-height: 0;
+        }
+      }
     }
   }
 }
