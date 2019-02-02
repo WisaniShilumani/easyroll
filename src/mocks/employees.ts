@@ -2,7 +2,7 @@ import * as faker from 'faker'
 import { Employee } from '../models/employee.model'
 
 const employees: Employee[] = []
-for (let i = 1; i < 20; i++) {
+for (let i = 1; i < 72; i++) {
   const employee = {
     id: i,
     firstName: faker.name.firstName(),

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core'
 import { Employee } from '@models/employee.model'
 @Component({
   selector: 'table-row',
@@ -6,10 +6,15 @@ import { Employee } from '@models/employee.model'
   styleUrls: ['./table-row.component.scss']
 })
 export class TableRowComponent implements OnInit {
-  @Input() employee
+  @Input() employee: Employee
+  @Output() viewEmployee = new EventEmitter()
   constructor() { }
 
   ngOnInit() {
+  }
+
+  viewEmployeeDetails () {
+    this.viewEmployee.emit(this.employee.id)
   }
 
 }

@@ -1,13 +1,14 @@
 @import './functions/calculateRem.scss';
+@import './variables/colors.scss';
 
 .header-container {
   padding: 0 calculateRem(13);
-  background: #ccc;
+  background: $secondary;
 
   .table-header {
     display: grid;
     grid-area: header;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 
     > div {
       padding: calculateRem(13) 0;

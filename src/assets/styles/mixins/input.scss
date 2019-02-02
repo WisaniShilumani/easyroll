@@ -1,0 +1,10 @@
+@import '../functions/calculateRem.scss';
+
+@mixin input() {
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-size: calculateRem(18);
+  min-height: calculateRem(36);
+  padding: calculateRem(13);
+}
