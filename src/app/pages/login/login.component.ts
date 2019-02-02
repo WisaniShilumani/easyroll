@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     private store: Store<AppState>,
   ) {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      username: ['abc', [Validators.required]],
+      password: ['xyz', [Validators.required]],
     })
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if (formValue.username === 'abc' && formValue.password === 'xyz') {
       this.dismissLoader()
       this.store.dispatch(new Login())
-      this.router.navigateByUrl('')
+      this.router.navigateByUrl('admin')
     }
   }
 

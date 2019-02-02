@@ -1,0 +1,16 @@
+.employees-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  employee-table {
+    width: 100%;
+    flex-grow: 1;
+  }  
+}

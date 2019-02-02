@@ -1,5 +1,7 @@
-<ul>
-  <li *ngFor="let employee of employees">
-    <h2>{{employee.firstName}} {{employee.lastName}}</h2>
-  </li>
-</ul>
+<div class="employees-container">
+  <h1>Employee List</h1>
+  <employee-table
+    [employees]="employees"
+  ></employee-table>
+</div>
+

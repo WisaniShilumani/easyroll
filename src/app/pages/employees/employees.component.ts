@@ -8,7 +8,8 @@ import { employees } from '@mocks/employees'
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-
+  payslips = payslips
+  employees = employees
   constructor() { }
 
   ngOnInit() {

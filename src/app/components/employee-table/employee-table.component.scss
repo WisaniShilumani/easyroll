@@ -1,0 +1,24 @@
+.table-container {
+  grid-template-areas: 
+    "header header"
+    "main main";
+
+  table-header {
+    max-height: calculateRem(44);
+  }
+  
+  .table-rows {
+    overflow-y: scroll;
+    grid-area: main;
+    max-height: calc(100vh - 44px);
+  
+    ::ng-deep table-row {
+      &:nth-last-child(2n+1) {
+    
+        > div {
+          background: #eee;
+        }
+      }
+    }
+  }
+}

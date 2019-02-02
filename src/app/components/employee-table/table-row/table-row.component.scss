@@ -1,0 +1,16 @@
+@import './functions/calculateRem.scss';
+@import './mixins/button.scss';
+
+.table-row-container {
+  padding: calculateRem(7) calculateRem(13);
+  display: grid;
+  grid-area: row;
+  grid-template-columns: repeat(5, 1fr);
+
+  div {
+
+    button {
+      @include button();
+    }
+  }
+}

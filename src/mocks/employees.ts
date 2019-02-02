@@ -7,7 +7,7 @@ for (let i = 1; i < 20; i++) {
     id: i,
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
-    pension: faker.random.number({ min: 0, max: 0.5 }),
+    pension: faker.random.number({ min: 0, max: 50 }),
     paymentDate: faker.date.between('2015-01-01', '2019-01-01')
   }
 

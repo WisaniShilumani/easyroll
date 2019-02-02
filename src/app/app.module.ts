@@ -1,17 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { AppComponent } from './app.component';
-import { EmployeesComponent } from './pages/employees/employees.component';
-import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component';
-import { PayslipComponent } from './pages/payslip/payslip.component';
-import { LoginComponent } from './pages/login/login.component';
+import { AppComponent } from './app.component'
+import { EmployeesComponent } from './pages/employees/employees.component'
+import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component'
+import { PayslipComponent } from './pages/payslip/payslip.component'
+import { LoginComponent } from './pages/login/login.component'
 
 import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { Reducers } from './store/reducers'
+
+import { AuthGuard } from './store/guards/auth.guard';
+import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
+import { TableHeaderComponent } from './components/employee-table/table-header/table-header.component';
+import { TableRowComponent } from './components/employee-table/table-row/table-row.component'
+
 
 export const environment = {
   production: false
@@ -23,7 +29,10 @@ export const environment = {
     EmployeesComponent,
     EmployeeDetailsComponent,
     PayslipComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeTableComponent,
+    TableHeaderComponent,
+    TableRowComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,11 @@ export const environment = {
     ),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthGuard
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
