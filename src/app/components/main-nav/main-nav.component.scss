@@ -1,0 +1,44 @@
+@import './variables/colors.scss';
+@import './functions/calculateRem.scss';
+@import './mixins/input.scss';
+
+.main-nav {
+  box-sizing: border-box;
+  padding: 0 calculateRem(13);
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calculateRem(48);
+  background: $primary;
+
+  h1 {
+    color: white;
+    font-size: calculateRem(28);
+    font-weight: 100;
+    font-family: 'Fredoka One', cursive;
+
+    span {
+      color: #f1f1f1;
+      font-family: 'Fredoka One', cursive;
+    }
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: calculateRem(24);
+    font-weight: 300;
+    padding: calculateRem(13);
+  }
+
+  input {
+    @include input();
+    border: 1px solid #eee;
+    height: 32px;
+    padding: 2px calculateRem(18);
+  }
+}

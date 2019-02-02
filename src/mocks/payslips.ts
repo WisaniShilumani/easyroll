@@ -2,7 +2,7 @@ import * as faker from 'faker'
 import { Payslip } from '../models/payslip.model'
 
 const payslips: Payslip[] = []
-for (let i = 1; i < 200; i++) {
+for (let i = 1; i < 2000; i++) {
   const payslip = {
     id: i,
     employeeId: faker.random.number({min: 0, max: 20}),

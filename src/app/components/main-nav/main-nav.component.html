@@ -1,0 +1,11 @@
+<div class="main-nav">
+  <div class="branding">
+    <h1>easy<span>roll</span></h1>
+  </div>
+  <div *ngIf="title" class="title">
+    <h2>{{title}}</h2>
+  </div>
+  <div *ngIf="showSearch" class="search">
+    <input (change)="search($event)" type="text" placeholder="Search employees"/>
+  </div>
+</div>

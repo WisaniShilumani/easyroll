@@ -5,7 +5,7 @@ import { EmployeesComponent } from './pages/employees/employees.component';
 import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component';
 import { PayslipComponent } from './pages/payslip/payslip.component';
 import { AuthGuard } from './store/guards/auth.guard'
-
+import { PayslipResolverService } from './services/resolvers/payslip'
 
 const routes: Routes = [
   {
@@ -16,22 +16,19 @@ const routes: Routes = [
     path: 'admin',
     component: EmployeesComponent,
     canActivate: [ AuthGuard ],
-    children: [
-      {
-        path: '',
-        canActivateChild: [ AuthGuard ],
-        children: [
-          {
-            path: ':id',
-            component: EmployeeDetailsComponent
-          },
-          {
-            path: ':id/:payslip',
-            component: PayslipComponent
-          }
-        ]
-      }
-    ]
+  },
+  {
+    path: 'admin/employee/:id',
+    component: EmployeeDetailsComponent,
+    canActivate: [ AuthGuard ],
+    resolve: {
+      employeeData: PayslipResolverService
+    }
+  },
+  {
+    path: 'admin/employee/:id/:payslip',
+    component: PayslipComponent,
+    canActivate: [ AuthGuard ],
   }
 ];
 

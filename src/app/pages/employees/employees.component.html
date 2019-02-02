@@ -1,16 +1,13 @@
 <div class="employees-container">
-  <div class="main-nav">
-    <div class="branding">
-      <h1>easy<span>roll</span></h1>
-    </div>
-    <div class="search">
-      <input [(ngModel)]="searchString" type="text" placeholder="Search employees"/>
-    </div>
-  </div>
+  <main-nav
+    [showSearch]="true"
+    (search)="updateSearchString($event)"
+  ></main-nav>
   <employee-table
     [employees]="employees"
     [searchString]="searchString"
     (viewEmployee)="viewEmployee($event)"
   ></employee-table>
 </div>
+
 

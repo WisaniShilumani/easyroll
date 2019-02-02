@@ -1,0 +1,10 @@
+<div class="payslips-container">
+  <payslip-table-header></payslip-table-header>
+  <div class="table-rows">
+    <payslip-row
+      *ngFor="let payslip of payslips"
+      [payslip]="payslip"
+      (viewPayslip)="viewPayslip($event)"
+    ></payslip-row> 
+  </div>
+</div>

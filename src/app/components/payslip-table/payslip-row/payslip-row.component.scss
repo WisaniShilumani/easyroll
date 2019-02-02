@@ -5,7 +5,7 @@
   padding: calculateRem(7) calculateRem(13);
   display: grid;
   grid-area: row;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   div {
     display: flex;

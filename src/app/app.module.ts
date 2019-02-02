@@ -16,8 +16,12 @@ import { Reducers } from './store/reducers'
 import { AuthGuard } from './store/guards/auth.guard';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { TableHeaderComponent } from './components/employee-table/table-header/table-header.component';
-import { TableRowComponent } from './components/employee-table/table-row/table-row.component'
-
+import { TableRowComponent } from './components/employee-table/table-row/table-row.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { PayslipTableComponent } from './components/payslip-table/payslip-table.component'
+import { PayslipResolverService } from './services/resolvers/payslip';
+import { PayslipTableHeaderComponent } from './components/payslip-table/payslip-table-header/payslip-table-header.component';
+import { PayslipRowComponent } from './components/payslip-table/payslip-row/payslip-row.component'
 
 export const environment = {
   production: false
@@ -32,7 +36,11 @@ export const environment = {
     LoginComponent,
     EmployeeTableComponent,
     TableHeaderComponent,
-    TableRowComponent
+    TableRowComponent,
+    MainNavComponent,
+    PayslipTableComponent,
+    PayslipTableHeaderComponent,
+    PayslipRowComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,8 @@ export const environment = {
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    PayslipResolverService
   ],
   bootstrap: [
     AppComponent

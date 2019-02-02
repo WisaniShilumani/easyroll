@@ -1,0 +1,19 @@
+@import './functions/calculateRem.scss';
+@import './variables/colors.scss';
+
+.header-container {
+  padding: 0 calculateRem(13);
+  background: $secondary;
+
+  .table-header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: repeat(3, 1fr);
+
+    > div {
+      padding: calculateRem(13) 0;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}
