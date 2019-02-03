@@ -35,6 +35,7 @@ You should be able to access the database on localhost:8080.
 - password: password
 - database: easyroll
 - dialect: PostgreSQL
+
 ================================================================================
 ### FRONTEND
 ================================================================================
@@ -58,3 +59,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## More
+This project works under the following assumptions
+1. The only CRUD operations are the ones briefed
+2. Currency is constant and is in rands
+3. The slip is to be generated in tabular form as per example
+4. A local stage is adequate for its use
+5. The search should search and filter locally

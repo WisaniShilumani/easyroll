@@ -26,7 +26,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
     this.store.dispatch(new CurrentEmployeeLoaded({
       payslips: employeeData ? employeeData[0] : [],
-      employee: employeeData ? employeeData[0] : {}
+      employee: employeeData ? employeeData[1] : {}
     }))
 
     this.store.select('currentEmployee').subscribe(currentEmployee => {

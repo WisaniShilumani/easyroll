@@ -8,7 +8,6 @@ import { providers } from './test.imports/services.list'
 import { RouterTestingModule } from '@angular/router/testing'
 import { Router } from '@angular/router'
 import { AppState } from '@store/store.interface'
-import { employees } from '@mocks/employees'
 import { Reducers } from '@store/reducers'
 import { Login } from '@store/actions/auth.actions'
 describe('AppComponent', () => {
