@@ -2,23 +2,56 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
-## Development server
+## Global Dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### NPM
+1. Follow the [Install Guide](https://blog.teamtreehouse.com/install-node-js-npm-linux)
 
-## Code scaffolding
+### Angular 7
+1. run `npm install -g @angular/cli`
+2. Read the [Quick Start Guide](https://angular.io/guide/quickstart)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Docker
+1. Follow the [Install Instructions](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-## Build
+### Serverless
+1. run `npm i serverless -g`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Project setup
 
-## Running unit tests
+This project encompasses the front and backend system for the employee payroll. To start up the project, follow the following instructions.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+================================================================================
+### BACKEND
+================================================================================
+1. Open and start docker on your machine
+2. Navigate into /db and run `npm install`
+3. Still in the /db directory, and run `npm run images:up` in Terminal 1
+4. Once step 3 is complete, run `npm run db:init` in the same directory
+5. Finally, in the same directory, once step 4 is complete, run `npm run api:up`
 
-## Running end-to-end tests
+You should be able to access the database on localhost:8080.
+- username: admin
+- password: password
+- database: easyroll
+- dialect: PostgreSQL
+================================================================================
+### FRONTEND
+================================================================================
+1. Navigate into the root folder and run `npm install`
+2. Run `npm run start` once the installation is complete
+3. Visit `http://localhost:4200` to interact with the frontend
+
+The following credentials (on by default) should let you access the employee list
+- username: abc
+- password: xyz
+
+## Tests
+### Running unit tests
+
+Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
+
+### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
