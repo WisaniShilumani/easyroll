@@ -32,16 +32,18 @@ import { PeriodPipe } from './pipes/period.pipe'
 import {
   MatDialogModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule,
-  MatNativeDateModule } from '@angular/material'
+  MatNativeDateModule, MatProgressSpinnerModule } from '@angular/material'
 import { CreatePayslipDialogComponent } from './components/payslip-table/create-payslip-dialog/create-payslip-dialog.component'
 import { UpdateEmployeeDialogComponent } from './components/update-employee-dialog/update-employee-dialog.component'
+import { LoadingModalComponent } from './components/loading-modal/loading-modal.component'
 
 const MatModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatProgressSpinnerModule
 ]
 export const environment = {
   production: false
@@ -63,7 +65,8 @@ export const environment = {
     PayslipSummaryComponent,
     PeriodPipe,
     CreatePayslipDialogComponent,
-    UpdateEmployeeDialogComponent
+    UpdateEmployeeDialogComponent,
+    LoadingModalComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ export const environment = {
   ],
   entryComponents: [
     CreatePayslipDialogComponent,
-    UpdateEmployeeDialogComponent
+    UpdateEmployeeDialogComponent,
+    LoadingModalComponent
   ],
   bootstrap: [
     AppComponent

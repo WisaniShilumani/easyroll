@@ -8,7 +8,7 @@ import { Reducers } from '../store/reducers'
 import {
   MatFormFieldModule,
   MatInputModule, MatDatepickerModule,
-  MatNativeDateModule } from '@angular/material'
+  MatNativeDateModule, MatProgressSpinnerModule } from '@angular/material'
 
 import { MatDialogModule } from '@angular/material/dialog'
 
@@ -26,7 +26,8 @@ export const MatModules = [
   MatFormFieldModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatProgressSpinnerModule
 ]
 
 export {

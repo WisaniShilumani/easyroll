@@ -1,0 +1,12 @@
+<div *ngIf="data.state === 'loading'">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="data.state === 'error'">
+  <h2 mat-dialog-title>Error</h2>
+  <div class="content" mat-dialog-content>
+    <p>{{data.message}}</p>
+  </div>
+  <div mat-dialog-actions class="buttons">
+    <button mat-button (click)="close()">Close</button>
+  </div>
+</div>
