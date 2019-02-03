@@ -13,7 +13,6 @@ export class PayslipTableComponent implements OnInit {
   @Input() displayName: string
   @Input() employeeId: number
   @Input() annualIncome: number
-  @Output() deletePayslip = new EventEmitter()
   activePayslip: number
   constructor() { }
 

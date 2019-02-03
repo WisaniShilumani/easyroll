@@ -6,7 +6,7 @@ import { Error } from '@models/handlers/error.model'
 export enum CurrentEmployeeActionTypes {
   CurrentEmployeeLoaded = '[CURR EMPLOYEE] loaded',
   CurrentEmployeeAddPayslip = '[CURR EMPLOYEE] add payslip',
-  CurrentEmployeeDeletePayslip = '[CURR EMPLOYEE] remove payslip',
+  CurrentEmployeeUpdateDetails = '[CURR EMPLOYEE] update details',
   CurrentEmployeeCleared = '[CURR EMPLOYEE] cleared',
   CurrentEmployeeCancelled = '[CURR EMPLOYEE] request cancelled',
 }
@@ -21,9 +21,9 @@ export class CurrentEmployeeAddPayslip implements Action {
   constructor(public payload: Payslip) {}
 }
 
-export class CurrentEmployeeDeletePayslip implements Action {
-  readonly type = CurrentEmployeeActionTypes.CurrentEmployeeDeletePayslip
-  constructor(public payslipId: number) {}
+export class CurrentEmployeeUpdateDetails implements Action {
+  readonly type = CurrentEmployeeActionTypes.CurrentEmployeeUpdateDetails
+  constructor(public payload: { employee: any}) {}
 }
 
 export class CurrentEmployeeCleared implements Action {
@@ -38,7 +38,7 @@ export class CurrentEmployeeCancelled implements Action {
 
 export type CurrentEmployeeActions =
   | CurrentEmployeeAddPayslip
-  | CurrentEmployeeDeletePayslip
+  | CurrentEmployeeUpdateDetails
   | CurrentEmployeeLoaded
   | CurrentEmployeeCancelled
   | CurrentEmployeeCleared

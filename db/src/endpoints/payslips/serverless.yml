@@ -1,0 +1,16 @@
+functions:
+  payslips:
+    handler: handler.payslips
+    events:
+    - http:
+        path: /payslips/{employeeId}
+        method: get
+        cors: true
+  createPayslip:
+    handler: handler.createPayslip
+    events:
+    - http:
+        path: /payslips/{employeeId}
+        method: post
+        cors: true
+  

@@ -66,6 +66,23 @@ paths:
             items:
               $ref: '#/definitions/Payslip'
             minItems: 5
+    post:
+      tags:
+        - 'payslips'
+      summary: 'Create a new payslip for an employee'
+      operationId: 'createPayslip'
+      produces:
+        - 'application/json'
+      parameters:
+        - $ref: '#/parameters/employeeIdPathParam'
+        - name: 'paymentDate'
+          in: 'body'
+          description: 'The payment date for the payslip'
+          schema:
+            $ref: '#/definitions/PaymentDate'
+      responses:
+        204:
+          description: 'successful operation'
   /payslips/{payslipId}:
     delete:
       tags:
@@ -78,9 +95,9 @@ paths:
       - $ref: '#/parameters/payslipIdPathParam'
       responses:
         500:
-          description: 'error deleting sale'
+          description: 'error deleting payslip'
         204:
-          description: 'sale deleted successfully'
+          description: 'payslip deleted successfully'
 parameters:
   employeeIdPathParam:
     in: path
@@ -111,7 +128,8 @@ definitions:
       id:
         type: 'integer'
         minimum: 0
-        description: 'Primary key of the sale record'
+        maximum: 2000
+        description: 'Primary key of the employee record'
       firstName:
         type: 'string'
         description: The employee\'s first name
@@ -123,6 +141,7 @@ definitions:
       annualIncome:
         type: 'integer'
         minimum: 10000
+        maximum: 240000
         description: The employee's annual income
       pensionContribution:
         type: 'integer'
@@ -161,3 +180,13 @@ definitions:
       - id
       - employeeId
       - period
+  PaymentDate:
+    type: 'object'
+    required:
+    - paymentDate
+    properties:
+      paymentDate:
+        type: 'string'
+        format: date
+        example: '2019-03-01'
+        description: The payment date for the payslip

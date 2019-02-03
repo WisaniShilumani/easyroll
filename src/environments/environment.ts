@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://private-077475-easyrollapi.apiary-mock.com'
+  apiUrl: '/api'
 };
 
 /*

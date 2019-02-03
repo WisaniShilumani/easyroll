@@ -13,4 +13,8 @@ export class PayslipSummaryComponent implements OnInit {
   ngOnInit() {
   }
 
+  thousands (number: number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
 }

@@ -1,0 +1,25 @@
+service: easyroll-api
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-east-1
+  environment:
+    STAGE: ${self:custom.stage}
+    REGION: 'eu-east-1'
+
+plugins:
+  - serverless-offline
+
+custom:
+  defaultRegion: eu-east-1
+  stage: local
+  serverless-offline:
+    host: 0.0.0.0
+functions:
+  # employees
+  employees: ${file(src/endpoints/employees/serverless.yml):functions.employees}
+  updateEmployee: ${file(src/endpoints/employees/serverless.yml):functions.updateEmployee}
+  # payslips
+  payslips: ${file(src/endpoints/payslips/serverless.yml):functions.payslips}
+  createPayslip: ${file(src/endpoints/payslips/serverless.yml):functions.createPayslip}

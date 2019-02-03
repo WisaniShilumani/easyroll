@@ -2,9 +2,17 @@
   "name": "easyroll-database",
   "version": "1.0.0",
   "description": "Database for easyroll",
-  "main": "index.js",
+  "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "images:up": "docker-compose up",
+    "db:drop": "sequelize db:drop",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate --migrations-path ./migrations",
+    "db:seed": "sequelize db:seed --seed ./seeders/*.js",
+    "db:init": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed",
+    "api:up": "sls offline start --env local",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js --ignore-path .gitignore ."
   },
   "keywords": [
     "easyroll",
@@ -15,8 +23,15 @@
   "author": "Wisani Shilumani <wshilumani@gmail.com> (http://twitter.com/wisanishilumani)",
   "license": "ISC",
   "dependencies": {
+    "db:create": "sequelize db:create",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^4.42.0",
-    "sequelize-cli": "^5.4.0",
-    "db:create": "sequelize db:create"
+    "sequelize-cli": "^5.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "serverless-offline": "^4.2.1"
   }
 }

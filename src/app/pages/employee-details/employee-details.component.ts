@@ -38,8 +38,4 @@ export class EmployeeDetailsComponent implements OnInit {
   get displayName () {
     return `${this.employee.firstName} ${this.employee.lastName}`
   }
-
-  deletePayslip (id) {
-    this.api.deletePayslip(id)
-  }
 }

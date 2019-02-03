@@ -24,10 +24,13 @@ export function currentEmployeeReducer(state: CurrentEmployee = initialState, ac
         ]
       }
     
-    case CurrentEmployeeActionTypes.CurrentEmployeeDeletePayslip:
+    case CurrentEmployeeActionTypes.CurrentEmployeeUpdateDetails:
       return {
         ...state,
-        payslips: state.payslips.filter(payslip => payslip.id !== actions.payslipId)
+        employee: {
+          ...state.employee,
+          ...actions.payload.employee
+        }
       }
 
     case CurrentEmployeeActionTypes.CurrentEmployeeCleared:

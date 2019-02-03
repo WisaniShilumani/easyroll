@@ -8,9 +8,9 @@
   </div>
   <div class="row">
     <div>{{summary.period | period}}</div>
-    <div>{{summary.grossIncome}}</div>
-    <div>{{summary.incomeTax}}</div>
-    <div>{{summary.netIncome}}</div>
-    <div>{{summary.pension}}</div>
+    <div>R {{thousands(summary.grossIncome)}}</div>
+    <div>R {{thousands(summary.incomeTax)}}</div>
+    <div>R {{thousands(summary.netIncome)}}</div>
+    <div>R {{thousands(summary.pension)}}</div>
   </div>
 </div>

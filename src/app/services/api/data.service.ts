@@ -13,38 +13,51 @@ import { CreatePayslip } from '@models/create-payslip.model'
 import { Store } from '@ngrx/store'
 import { AppState } from '@store/store.interface'
 
-import { CurrentEmployeeAddPayslip, CurrentEmployeeDeletePayslip } from '@store/actions/current-employee.actions'
+import { CurrentEmployeeAddPayslip, CurrentEmployeeUpdateDetails } from '@store/actions/current-employee.actions'
 @Injectable({
   providedIn: 'root',
 })
 export class DataService extends BaseApiService {
+  apiUrl: string = environment.apiUrl
   constructor(private http: HttpClient, private store: Store<AppState>) {
     super()
   }
 
-  getEmployees (): Observable<Employee[]> {
-    return of(employees)
+  getEmployees (): Observable<any> {
+    return this.http.get(`${this.apiUrl}/employees`, this.httpOptions)
   }
 
-  getPayslips (employeeId: number): Observable<Payslip[]> {
-    return of(payslips.filter(payslip => payslip.employeeId === employeeId))
+  updateEmployee (employeeId: number, employeeData: any) {
+    return this.http.post(
+      `${this.apiUrl}/employees/${employeeId}`,
+      employeeData,
+      this.httpOptions
+    ).subscribe(() => {
+      this.store.dispatch(new CurrentEmployeeUpdateDetails(employeeData))
+    }, error => {
+      console.error(error)
+    })
   }
 
-  createPayslip (payslipDetails: CreatePayslip): Observable<boolean> {
+  getPayslips (employeeId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/payslips/${employeeId}`, this.httpOptions)
+  }
+
+  createPayslip (payslipDetails: CreatePayslip) {
     const payslip = {
       id: payslipDetails.id,
       employeeId: payslipDetails.employeeId,
       period: payslipDetails.startDate.toISOString()
     }
 
-    // some rest call then ...
-    this.store.dispatch(new CurrentEmployeeAddPayslip(payslip))
-    return of(true)
+    return this.http.post(
+      `${this.apiUrl}/payslips/${payslipDetails.employeeId}`,
+      { paymentDate: payslipDetails.startDate.toISOString() },
+      this.httpOptions
+    ).subscribe(() => {
+      this.store.dispatch(new CurrentEmployeeAddPayslip(payslip))
+    })
   }
 
-  deletePayslip (payslipId: number): Observable<boolean> {
-    // some rest call then ...
-    this.store.dispatch(new CurrentEmployeeDeletePayslip(payslipId))
-    return of(true)
-  }
+  
 }

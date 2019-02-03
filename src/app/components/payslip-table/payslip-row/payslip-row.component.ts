@@ -13,7 +13,6 @@ export class PayslipRowComponent implements OnInit {
   @Input() pensionContribution: number
   @Input() showDetails: boolean = false
   @Output() viewPayslip = new EventEmitter()
-  @Output() deletePayslip = new EventEmitter()
   constructor() { }
 
   ngOnInit() {
@@ -22,10 +21,6 @@ export class PayslipRowComponent implements OnInit {
 
   expandPayslip() {
     this.viewPayslip.emit(this.payslip.id)
-  }
-
-  thousands (number: number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   get payslipSummary () {

@@ -1,5 +1,5 @@
 <div class="table-row-container">
-  <div (click)="deletePayslip.emit(payslip.id)">{{ payslip.period | period }}</div>
+  <div>{{ payslip.period | period }}</div>
   <div><button *ngIf="!showDetails" (click)="expandPayslip()">Display payslip</button></div>
   <div></div>
 </div>

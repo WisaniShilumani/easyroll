@@ -1,0 +1,15 @@
+functions:
+  employees:
+    handler: handler.employees
+    events:
+    - http:
+        path: /employees
+        method: get
+        cors: true
+  updateEmployee:
+    handler: handler.updateEmployee
+    events:
+    - http:
+        path: /employees/{employeeId}
+        method: post
+        cors: true
