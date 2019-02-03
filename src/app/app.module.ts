@@ -15,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component'
 import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { Reducers } from './store/reducers'
+import { metaReducers } from './store/meta-reducers'
 
 import { AuthGuard } from './store/guards/auth.guard';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
@@ -34,6 +35,7 @@ import {
   MatInputModule, MatDatepickerModule,
   MatNativeDateModule } from '@angular/material';
 import { CreatePayslipDialogComponent } from './components/payslip-table/create-payslip-dialog/create-payslip-dialog.component';
+import { UpdateEmployeeDialogComponent } from './components/update-employee-dialog/update-employee-dialog.component';
 
 const MatModules = [
   MatDialogModule,
@@ -62,7 +64,8 @@ export const environment = {
     PayslipRowComponent,
     PayslipSummaryComponent,
     PeriodPipe,
-    CreatePayslipDialogComponent
+    CreatePayslipDialogComponent,
+    UpdateEmployeeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ export const environment = {
     ReactiveFormsModule,
     ...MatModules,
     StoreModule.forRoot(
-      { ...Reducers }
+      { ...Reducers },
+      { metaReducers }
     ),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
@@ -83,7 +87,8 @@ export const environment = {
     EmployeesResolverService
   ],
   entryComponents: [
-    CreatePayslipDialogComponent
+    CreatePayslipDialogComponent,
+    UpdateEmployeeDialogComponent
   ],
   bootstrap: [
     AppComponent

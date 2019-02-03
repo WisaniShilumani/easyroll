@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store'
 import { CurrentEmployee } from '@models/current-employee.model'
+import { UpdateEmployee } from '@models/update-employee'
 import { Payslip } from '@models/payslip.model'
 import { Error } from '@models/handlers/error.model'
 
@@ -23,7 +24,7 @@ export class CurrentEmployeeAddPayslip implements Action {
 
 export class CurrentEmployeeUpdateDetails implements Action {
   readonly type = CurrentEmployeeActionTypes.CurrentEmployeeUpdateDetails
-  constructor(public payload: { employee: any}) {}
+  constructor(public employee: UpdateEmployee) {}
 }
 
 export class CurrentEmployeeCleared implements Action {

@@ -8,6 +8,7 @@ import { employees } from '@mocks/employees'
 import { payslips } from '@mocks/payslips'
 import { Employee } from '@models/employee.model'
 import { Payslip } from '@models/payslip.model'
+import { UpdateEmployee } from '@models/update-employee'
 import { CreatePayslip } from '@models/create-payslip.model'
 
 import { Store } from '@ngrx/store'
@@ -27,7 +28,7 @@ export class DataService extends BaseApiService {
     return this.http.get(`${this.apiUrl}/employees`, this.httpOptions)
   }
 
-  updateEmployee (employeeId: number, employeeData: any) {
+  updateEmployee (employeeId: number, employeeData: UpdateEmployee) {
     return this.http.post(
       `${this.apiUrl}/employees/${employeeId}`,
       employeeData,
@@ -58,6 +59,4 @@ export class DataService extends BaseApiService {
       this.store.dispatch(new CurrentEmployeeAddPayslip(payslip))
     })
   }
-
-  
 }

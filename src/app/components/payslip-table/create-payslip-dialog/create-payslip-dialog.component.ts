@@ -8,14 +8,13 @@ import { CreatePayslip } from '@models/create-payslip.model'
   styleUrls: ['./create-payslip-dialog.component.scss']
 })
 export class CreatePayslipDialogComponent {
-  
+
   constructor(
     public dialogRef: MatDialogRef<CreatePayslipDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CreatePayslip
   ) { }
 
-  onNoClick(): void {
+  cancel(): void {
     this.dialogRef.close();
   }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { MatDialog } from '@angular/material'
+import { UpdateEmployeeDialogComponent } from '../../update-employee-dialog/update-employee-dialog.component'
 import { CreatePayslipDialogComponent } from '../create-payslip-dialog/create-payslip-dialog.component'
 import { DataService } from '../../../services/api/data.service'
 import { Employee } from '@models/employee.model'
@@ -35,6 +36,20 @@ export class PayslipTableHeaderComponent implements OnInit {
   }
 
   updateRecords () {
-    
+    const dialog = this.dialog.open(UpdateEmployeeDialogComponent, {
+      data: {
+        firstName: this.employee.firstName,
+        lastName: this.employee.lastName,
+        annualIncome: this.employee.annualIncome,
+        pensionContribution: this.employee.pensionContribution,
+        paymentDate: this.employee.paymentDate
+      }
+    })
+
+    dialog.afterClosed().subscribe(result => {
+      if (result && Object.keys(result) && Object.keys(result).length) {
+        this.api.updateEmployee(this.employee.id, result)
+      }
+    })
   }
 }

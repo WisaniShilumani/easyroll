@@ -29,7 +29,7 @@ export function currentEmployeeReducer(state: CurrentEmployee = initialState, ac
         ...state,
         employee: {
           ...state.employee,
-          ...actions.payload.employee
+          ...actions.employee
         }
       }
 

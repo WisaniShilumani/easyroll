@@ -13,6 +13,10 @@
   min-height: calculateRem(48);
   background: $primary;
 
+  .branding {
+    cursor: pointer;
+  }
+
   h1 {
     color: white;
     font-size: calculateRem(28);
