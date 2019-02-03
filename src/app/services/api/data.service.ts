@@ -52,12 +52,16 @@ export class DataService extends BaseApiService {
     const payslip = {
       id: payslipDetails.id,
       employeeId: payslipDetails.employeeId,
-      period: payslipDetails.startDate.toISOString()
+      paymentDate: payslipDetails.startDate.toISOString(),
+      annualIncomeSnapshot: payslipDetails.annualIncomeSnapshot
     }
 
     return this.http.post(
       `${this.apiUrl}/payslips/${payslipDetails.employeeId}`,
-      { paymentDate: payslipDetails.startDate.toISOString() },
+      {
+        paymentDate: payslipDetails.startDate.toISOString(),
+        annualIncomeSnapshot: payslipDetails.annualIncomeSnapshot
+      },
       this.httpOptions
     ).subscribe(() => {
       this.closeModals()

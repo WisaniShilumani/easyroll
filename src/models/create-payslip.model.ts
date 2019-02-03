@@ -3,4 +3,5 @@ export interface CreatePayslip {
   employeeId: number
   name: string
   startDate: Date
+  annualIncomeSnapshot: number
 }

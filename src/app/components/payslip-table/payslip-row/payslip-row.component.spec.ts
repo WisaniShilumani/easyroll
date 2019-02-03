@@ -36,7 +36,7 @@ describe('PayslipRowComponent', () => {
     const firstTextContent: string = columns[0].textContent
     expect(firstTextContent).toContain(' - ')
     const [ date1, date2 ] = firstTextContent.split(' - ')
-    expect(moment(date1).format('DD MMMM')).toEqual(moment(payslips[0].period).format('DD MMMM'))
+    expect(moment(date1).format('DD MMMM')).toEqual(moment(payslips[0].paymentDate).format('DD MMMM'))
     expect(date2).toBeTruthy()
   }))
 })

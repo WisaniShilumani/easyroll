@@ -29,6 +29,7 @@ export class PayslipTableHeaderComponent implements OnInit {
         this.api.createPayslip({
           ...result,
           employeeId: this.employee.id,
+          annualIncomeSnapshot: this.employee.annualIncome,
           id: this.numPayslips
         })
       }

@@ -75,11 +75,11 @@ paths:
         - 'application/json'
       parameters:
         - $ref: '#/parameters/employeeIdPathParam'
-        - name: 'paymentDate'
+        - name: 'createPayslip'
           in: 'body'
           description: 'The payment date for the payslip'
           schema:
-            $ref: '#/definitions/PaymentDate'
+            $ref: '#/definitions/createPayslip'
       responses:
         204:
           description: 'successful operation'
@@ -180,13 +180,19 @@ definitions:
       - id
       - employeeId
       - period
-  PaymentDate:
+  createPayslip:
     type: 'object'
     required:
     - paymentDate
+    - grossIncome
     properties:
       paymentDate:
         type: 'string'
         format: date
         example: '2019-03-01'
         description: The payment date for the payslip
+      annualIncomeSnapshot:
+        type: 'integer'
+        min: 1
+        example: 6000
+        description: The gross monthly income recorded on the the payslip

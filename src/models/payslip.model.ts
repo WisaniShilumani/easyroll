@@ -1,5 +1,6 @@
 export interface Payslip {
   id: number
   employeeId: number
-  period: string
+  paymentDate: string
+  annualIncomeSnapshot: number
 }

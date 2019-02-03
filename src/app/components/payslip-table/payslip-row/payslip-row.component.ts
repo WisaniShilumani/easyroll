@@ -9,7 +9,6 @@ import { calculateIncome } from '@utils/income/incomeCalculator'
 export class PayslipRowComponent implements OnInit {
   @Input() payslip: Payslip
   @Input() displayName: string
-  @Input() annualIncome: number
   @Input() pensionContribution: number
   @Input() showDetails = false
   @Output() viewPayslip = new EventEmitter()
@@ -25,8 +24,8 @@ export class PayslipRowComponent implements OnInit {
 
   get payslipSummary () {
     return {
-      ...calculateIncome(this.annualIncome, this.pensionContribution),
-      period: this.payslip.period
+      ...calculateIncome(this.payslip.annualIncomeSnapshot, this.pensionContribution),
+      paymentDate: this.payslip.paymentDate
     }
   }
 }

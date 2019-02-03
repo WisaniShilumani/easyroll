@@ -25,7 +25,7 @@ describe('PayslipSummaryComponent', () => {
     component = fixture.componentInstance
     component.summary = {
       ...calculateIncome(employees[0].annualIncome, employees[0].pensionContribution),
-      period: payslips[0].period
+      paymentDate: payslips[0].paymentDate
     }
     fixture.detectChanges()
 
@@ -41,7 +41,7 @@ describe('PayslipSummaryComponent', () => {
     const firstTextContent: string = columns[0].textContent
     expect(firstTextContent).toContain(' - ')
     const [ date1, date2 ] = firstTextContent.split(' - ')
-    expect(moment(date1).format('DD MMMM')).toEqual(moment(payslips[0].period).format('DD MMMM'))
+    expect(moment(date1).format('DD MMMM')).toEqual(moment(payslips[0].paymentDate).format('DD MMMM'))
     expect(date2).toBeTruthy()
   })
 

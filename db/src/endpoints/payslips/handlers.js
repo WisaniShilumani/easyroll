@@ -13,8 +13,12 @@ const payslips = async (event) => {
 
 const createPayslip = async (event) => {
   const data = JSON.parse(event.body)
-  const paymentDate = new Date(data.paymentDate)
-  const request = await db.createPayslip(+event.pathParameters.employeeId, paymentDate)
+  const paymentDate = (new Date(data.paymentDate)).toISOString()
+  const request = await db.createPayslip(
+    +event.pathParameters.employeeId,
+    paymentDate,
+    +data.annualIncomeSnapshot
+  )
   return response.ok(request.body)
 }
 

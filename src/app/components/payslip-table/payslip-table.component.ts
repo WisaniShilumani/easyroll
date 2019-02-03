@@ -8,11 +8,9 @@ import { Employee } from '@models/employee.model'
 })
 export class PayslipTableComponent implements OnInit {
   @Input() payslips: Payslip[] = []
-  @Input() pensionContribution: number
   @Input() employee: Employee
   @Input() displayName: string
   @Input() employeeId: number
-  @Input() annualIncome: number
   activePayslip: number
   constructor() { }
 
