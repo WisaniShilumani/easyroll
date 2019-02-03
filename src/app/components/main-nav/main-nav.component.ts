@@ -14,8 +14,8 @@ export class MainNavComponent implements OnInit {
   ngOnInit() {
   }
 
-  search (searchString) {
-    this.updateSearchString.emit(searchString)
+  search (event) {
+    this.updateSearchString.emit(event.target.value)
   }
 
 }

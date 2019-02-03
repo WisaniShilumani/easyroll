@@ -1,24 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { payslips } from '@mocks/payslips'
-import { employees } from '@mocks/employees'
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+import { switchMap } from 'rxjs/operators'
+import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 import { Store } from '@ngrx/store'
 import { AppState } from '@store/store.interface'
 import { EmployeesLoaded } from '@store/actions/employees.actions'
-
+import { Employee } from '@models/employee.model'
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  payslips = payslips
-  employees = employees
+  employees: Employee[]
   searchString: string = ''
-  constructor(private router: Router, private store: Store<AppState>) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private store: Store<AppState>
+    ) { }
 
   ngOnInit() {
+    const { employees } = this.route.snapshot.data
     this.store.dispatch(new EmployeesLoaded(employees))
+    this.store.select('employees').subscribe(employees => {
+      this.employees = employees
+    })
   }
 
   viewEmployee(id: number) {
@@ -28,5 +34,4 @@ export class EmployeesComponent implements OnInit {
   updateSearchString(searchString) {
     this.searchString = searchString
   }
-
 }

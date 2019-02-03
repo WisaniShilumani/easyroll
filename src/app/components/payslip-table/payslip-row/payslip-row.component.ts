@@ -9,13 +9,15 @@ import { calculateIncome } from '@utils/income/incomeCalculator'
 export class PayslipRowComponent implements OnInit {
   @Input() payslip: Payslip
   @Input() displayName: string
+  @Input() annualIncome: number
   @Input() pensionContribution: number
   @Input() showDetails: boolean = false
   @Output() viewPayslip = new EventEmitter()
+  @Output() deletePayslip = new EventEmitter()
   constructor() { }
 
   ngOnInit() {
-    console.log(this.payslip.annualIncome, this.pensionContribution)
+    
   }
 
   expandPayslip() {
@@ -28,7 +30,7 @@ export class PayslipRowComponent implements OnInit {
 
   get payslipSummary () {
     return {
-      ...calculateIncome(this.payslip.annualIncome, this.pensionContribution),
+      ...calculateIncome(this.annualIncome, this.pensionContribution),
       period: this.payslip.period
     }
   }

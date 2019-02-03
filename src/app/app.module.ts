@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { HttpClientModule } from '@angular/common/http'
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -20,10 +23,25 @@ import { TableRowComponent } from './components/employee-table/table-row/table-r
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { PayslipTableComponent } from './components/payslip-table/payslip-table.component'
 import { PayslipResolverService } from './services/resolvers/payslip';
+import { EmployeesResolverService } from './services/resolvers/employees'
 import { PayslipTableHeaderComponent } from './components/payslip-table/payslip-table-header/payslip-table-header.component';
 import { PayslipRowComponent } from './components/payslip-table/payslip-row/payslip-row.component';
-import { PayslipSummaryComponent } from './components/payslip-summary/payslip-summary.component'
+import { PayslipSummaryComponent } from './components/payslip-summary/payslip-summary.component';
+import { PeriodPipe } from './pipes/period.pipe';
 
+import { 
+  MatDialogModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule,
+  MatNativeDateModule } from '@angular/material';
+import { CreatePayslipDialogComponent } from './components/payslip-table/create-payslip-dialog/create-payslip-dialog.component';
+
+const MatModules = [
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+]
 export const environment = {
   production: false
 }
@@ -42,13 +60,18 @@ export const environment = {
     PayslipTableComponent,
     PayslipTableHeaderComponent,
     PayslipRowComponent,
-    PayslipSummaryComponent
+    PayslipSummaryComponent,
+    PeriodPipe,
+    CreatePayslipDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ...MatModules,
     StoreModule.forRoot(
       { ...Reducers }
     ),
@@ -56,7 +79,11 @@ export const environment = {
   ],
   providers: [
     AuthGuard,
-    PayslipResolverService
+    PayslipResolverService,
+    EmployeesResolverService
+  ],
+  entryComponents: [
+    CreatePayslipDialogComponent
   ],
   bootstrap: [
     AppComponent

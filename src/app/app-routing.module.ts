@@ -6,6 +6,7 @@ import { EmployeeDetailsComponent } from './pages/employee-details/employee-deta
 import { PayslipComponent } from './pages/payslip/payslip.component';
 import { AuthGuard } from './store/guards/auth.guard'
 import { PayslipResolverService } from './services/resolvers/payslip'
+import { EmployeesResolverService } from './services/resolvers/employees'
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
     path: 'admin',
     component: EmployeesComponent,
     canActivate: [ AuthGuard ],
+    resolve: {
+      employees: EmployeesResolverService
+    }
   },
   {
     path: 'admin/employee/:id',

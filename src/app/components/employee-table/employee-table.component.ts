@@ -25,7 +25,8 @@ export class EmployeeTableComponent implements OnInit {
           return employee.id === +this.searchString
         }
 
-        return `${employee.firstName} ${employee.lastName}`.indexOf(this.searchString) !== -1
+        return `${employee.firstName} ${employee.lastName}`
+          .toLowerCase().indexOf(this.searchString.toLowerCase()) !== -1
       })
     }
 

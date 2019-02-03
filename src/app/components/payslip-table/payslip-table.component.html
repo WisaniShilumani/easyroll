@@ -1,14 +1,19 @@
 <div class="payslips-container">
-  <payslip-table-header></payslip-table-header>
+  <payslip-table-header
+    [employee]="employee"
+    [numPayslips]="payslips.length"
+  ></payslip-table-header>
   <div class="table-rows">
     <payslip-row
       *ngFor="let payslip of payslips"
       [payslip]="payslip"
       [pensionContribution]="pensionContribution"
       [displayName]="displayName"
+      [annualIncome]="annualIncome"
       [showDetails]="payslip.id === activePayslip"
       [class.active]="payslip.id === activePayslip"
       (viewPayslip)="viewPayslip($event)"
+      (deletePayslip)="deletePayslip.emit($event)"
     ></payslip-row> 
   </div>
 </div>

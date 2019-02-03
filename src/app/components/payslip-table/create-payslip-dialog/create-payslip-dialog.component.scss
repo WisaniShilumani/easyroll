@@ -1,0 +1,31 @@
+@import './mixins/button.scss';
+@import './variables/colors.scss';
+@import './functions/calculateRem.scss';
+
+mat-form-field {
+  margin: calculateRem(7)
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+
+  button {
+    @include button();
+    margin: 0 calculateRem(7);
+    color: white;
+
+    &.cancel {
+      background: $tertiary; 
+    }
+
+    &.submit {
+      background: $primary; 
+    }
+  }
+}

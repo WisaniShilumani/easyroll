@@ -1,0 +1,163 @@
+swagger: '2.0'
+info:
+  description: 'Swagger definition for easyroll'
+  version: '1.0.0'
+  title: 'Easyroll API'
+  contact:
+    email: 'wshilumani@gmail.com'
+tags:
+  - name: 'employees'
+  - name: 'payslips'
+  - name: 'income'
+schemes:
+  - 'https'
+paths:
+  /employees:
+    get:
+      tags:
+        - 'employees'
+      summary: 'List of employees'
+      description: ''
+      operationId: 'listEmployees'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'successful operation'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Employee'
+            minItems: 5
+  /employees/{employeeId}:
+    post:
+      tags:
+        - 'employees'
+      summary: 'Update employee record'
+      description: ''
+      operationId: 'updateEmployee'
+      produces:
+        - 'application/json'
+      parameters:
+        - $ref: '#/parameters/employeeIdPathParam'
+        - in: 'body'
+          name: 'body'
+          description: 'The updated employee record'
+          schema:
+            $ref: '#/definitions/Employee'
+      responses:
+        204:
+          description: 'employee record updated successfully'
+  /payslips/{employeeId}:
+    get:
+      tags:
+        - 'payslips'
+      summary: 'Get payslips for an employee'
+      operationId: 'listPayslips'
+      produces:
+        - 'application/json'
+      parameters:
+        - $ref: '#/parameters/employeeIdPathParam'
+      responses:
+        200:
+          description: 'successful operation'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Payslip'
+            minItems: 5
+  /payslips/{payslipId}:
+    delete:
+      tags:
+      - 'payslips'
+      summary: 'Delete the payslip'
+      operationId: 'deletePayslip'
+      produces:
+      - 'application/json'
+      parameters:
+      - $ref: '#/parameters/payslipIdPathParam'
+      responses:
+        500:
+          description: 'error deleting sale'
+        204:
+          description: 'sale deleted successfully'
+parameters:
+  employeeIdPathParam:
+    in: path
+    name: employeeId
+    required: true
+    type: 'integer'
+    minimum: 0
+    description: The employee id
+  payslipIdPathParam:
+    in: path
+    name: payslipId
+    required: true
+    type: 'integer'
+    minimum: 0
+    description: The payslip id
+definitions:
+  ApiError:
+    type: 'object'
+    description: 'Error response object from Api'
+    properties:
+      message:
+        type: 'string'
+        description: 'Error message'
+        example: 'resource not found'
+  Employee:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        minimum: 0
+        description: 'Primary key of the sale record'
+      firstName:
+        type: 'string'
+        description: The employee\'s first name
+        example: 'Andrew'
+      lastName:
+        type: 'string'
+        description: The employee\'s last name
+        example: 'Baker'
+      annualIncome:
+        type: 'integer'
+        minimum: 10000
+        description: The employee's annual income
+      pensionContribution:
+        type: 'integer'
+        minimum: 0
+        maximum: 50
+        description: The employee's pension contribution
+      paymentDate:
+        type: 'string'
+        format: date
+        example: '2019-02-01'
+        description: The salary payment date for the employee
+    required:
+      - id
+      - firstName
+      - lastName
+      - annualIncome
+      - pensionContribution
+      - paymentDate
+  Payslip:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        minimum: 0
+        description: 'Primary key of the payslip record'
+      employeeId:
+        type: 'integer'
+        minimum: 0
+        description: 'The id of the employee the payslip belongs to'
+      period:
+        type: 'string'
+        format: date
+        example: '2019-02-01'
+        description: The salary payment date for the employee
+    required:
+      - id
+      - employeeId
+      - period

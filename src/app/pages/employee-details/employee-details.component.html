@@ -3,7 +3,9 @@
   <payslip-table
     [payslips]="payslips"
     [pensionContribution]="employee.pensionContribution"
-    [displayName]="displayName"
+    [employee]="employee"
+    [annualIncome]="employee.annualIncome"
+    (deletePayslip)="deletePayslip($event)"
   ></payslip-table>
 </div>
     

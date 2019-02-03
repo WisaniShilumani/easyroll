@@ -1,0 +1,22 @@
+{
+  "name": "easyroll-database",
+  "version": "1.0.0",
+  "description": "Database for easyroll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "easyroll",
+    "payroll",
+    "database",
+    "sql"
+  ],
+  "author": "Wisani Shilumani <wshilumani@gmail.com> (http://twitter.com/wisanishilumani)",
+  "license": "ISC",
+  "dependencies": {
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "db:create": "sequelize db:create"
+  }
+}

@@ -6,6 +6,6 @@
     <h2>{{title}}</h2>
   </div>
   <div *ngIf="showSearch" class="search">
-    <input (change)="search($event)" type="text" placeholder="Search employees"/>
+    <input (keyup)="search($event)" type="text" placeholder="Search employees"/>
   </div>
 </div>
