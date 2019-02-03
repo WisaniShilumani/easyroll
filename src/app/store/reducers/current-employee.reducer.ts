@@ -10,7 +10,10 @@ export const initialState: CurrentEmployee = {
   payslips: []
 }
 
-export function currentEmployeeReducer(state: CurrentEmployee = initialState, actions: CurrentEmployeeActions.CurrentEmployeeActions ): CurrentEmployee {
+export function currentEmployeeReducer(
+  state: CurrentEmployee = initialState,
+  actions: CurrentEmployeeActions.CurrentEmployeeActions
+  ): CurrentEmployee {
   switch (actions.type) {
     case CurrentEmployeeActionTypes.CurrentEmployeeLoaded:
       return actions.payload.employee && actions.payload.payslips ? actions.payload : state
@@ -23,7 +26,7 @@ export function currentEmployeeReducer(state: CurrentEmployee = initialState, ac
           actions.payload
         ]
       }
-    
+
     case CurrentEmployeeActionTypes.CurrentEmployeeUpdateDetails:
       return {
         ...state,

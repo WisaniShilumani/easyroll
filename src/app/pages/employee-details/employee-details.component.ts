@@ -25,8 +25,8 @@ export class EmployeeDetailsComponent implements OnInit {
     const { employeeData } = this.route.snapshot.data
 
     this.store.dispatch(new CurrentEmployeeLoaded({
-      payslips: employeeData[0],
-      employee: employeeData[1]
+      payslips: employeeData ? employeeData[0] : [],
+      employee: employeeData ? employeeData[0] : {}
     }))
 
     this.store.select('currentEmployee').subscribe(currentEmployee => {

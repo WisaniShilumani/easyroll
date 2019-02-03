@@ -12,7 +12,7 @@ import { Employee } from '@models/employee.model'
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[]
-  searchString: string = ''
+  searchString = ''
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -22,8 +22,9 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     const { employees } = this.route.snapshot.data
     this.store.dispatch(new EmployeesLoaded(employees))
-    this.store.select('employees').subscribe(employees => {
-      this.employees = employees
+
+    this.store.select('employees').subscribe(storeEmployees => {
+      this.employees = storeEmployees
     })
   }
 

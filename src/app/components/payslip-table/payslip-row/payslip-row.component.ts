@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { Payslip } from '@models/payslip.model'
 import { calculateIncome } from '@utils/income/incomeCalculator'
 @Component({
@@ -11,12 +11,12 @@ export class PayslipRowComponent implements OnInit {
   @Input() displayName: string
   @Input() annualIncome: number
   @Input() pensionContribution: number
-  @Input() showDetails: boolean = false
+  @Input() showDetails = false
   @Output() viewPayslip = new EventEmitter()
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
   expandPayslip() {

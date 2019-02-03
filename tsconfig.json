@@ -33,6 +33,7 @@
       "@utils/*": [
         "src/app/utils/*"
       ]
-    }
+    },
+    "types": ["jest"]
   }
 }

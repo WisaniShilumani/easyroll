@@ -18,6 +18,6 @@ export class TableRowComponent implements OnInit {
   }
 
   thousands (number: number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 }

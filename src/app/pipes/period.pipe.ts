@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core'
 import { startDateToPeriod } from '@utils/period/startDateToPeriod'
 
 @Pipe({

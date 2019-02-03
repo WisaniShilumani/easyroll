@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
+import { Component, Inject } from '@angular/core'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { CreatePayslip } from '@models/create-payslip.model'
 
 @Component({
@@ -15,6 +15,6 @@ export class CreatePayslipDialogComponent {
   ) { }
 
   cancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close()
   }
 }

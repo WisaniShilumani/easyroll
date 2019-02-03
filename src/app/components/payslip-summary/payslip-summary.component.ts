@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
 import { Payslip } from '@models/payslip.model'
 @Component({
   selector: 'payslip-summary',
@@ -14,7 +14,7 @@ export class PayslipSummaryComponent implements OnInit {
   }
 
   thousands (number: number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
 }

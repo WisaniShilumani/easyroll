@@ -1,15 +1,3 @@
-const calculateIncome = (annualIncome: number, pensionContribution: number) => {
-  const grossIncome = annualIncome / 12
-  const incomeTax = getIncomeTax(annualIncome) / 12
-
-  return {
-    incomeTax: Math.abs(Math.round(incomeTax)),
-    netIncome: Math.round(grossIncome - incomeTax),
-    pension: Math.round((pensionContribution / 100) * grossIncome),
-    grossIncome: Math.round(grossIncome)
-  }
-}
-
 const getIncomeTax = (income: number) => {
   const intervals = [
     0,
@@ -37,6 +25,18 @@ const getIncomeTax = (income: number) => {
 
     default:
       return 0
+  }
+}
+
+const calculateIncome = (annualIncome: number, pensionContribution: number) => {
+  const grossIncome = annualIncome / 12
+  const incomeTax = getIncomeTax(annualIncome) / 12
+
+  return {
+    incomeTax: Math.abs(Math.round(incomeTax)),
+    netIncome: Math.round(grossIncome - incomeTax),
+    pension: Math.round((pensionContribution / 100) * grossIncome),
+    grossIncome: Math.round(grossIncome)
   }
 }
 

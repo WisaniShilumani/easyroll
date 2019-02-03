@@ -5,4 +5,3 @@ export interface UpdateEmployee {
   pensionContribution?: number
   paymentDate?: string
 }
-  

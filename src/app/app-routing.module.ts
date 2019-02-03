@@ -1,14 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { EmployeesComponent } from './pages/employees/employees.component';
-import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component';
-import { PayslipComponent } from './pages/payslip/payslip.component';
+import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
+import { LoginComponent } from './pages/login/login.component'
+import { EmployeesComponent } from './pages/employees/employees.component'
+import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component'
 import { AuthGuard } from './store/guards/auth.guard'
 import { PayslipResolverService } from './services/resolvers/payslip'
 import { EmployeesResolverService } from './services/resolvers/employees'
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
@@ -28,13 +27,8 @@ const routes: Routes = [
     resolve: {
       employeeData: PayslipResolverService
     }
-  },
-  {
-    path: 'admin/employee/:id/:payslip',
-    component: PayslipComponent,
-    canActivate: [ AuthGuard ],
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
