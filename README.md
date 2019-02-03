@@ -67,3 +67,4 @@ This project works under the following assumptions
 3. The slip is to be generated in tabular form as per example
 4. A local stage is adequate for its use
 5. The search should search and filter locally
+6. All payment periods are 1 month
