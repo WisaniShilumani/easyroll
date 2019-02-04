@@ -3,4 +3,5 @@ export interface Payslip {
   employeeId: number
   paymentDate: string
   annualIncomeSnapshot: number
+  pensionContributionSnapshot: number
 }

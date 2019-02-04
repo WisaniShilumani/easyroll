@@ -17,7 +17,8 @@ const createPayslip = async (event) => {
   const request = await db.createPayslip(
     +event.pathParameters.employeeId,
     paymentDate,
-    +data.annualIncomeSnapshot
+    +data.annualIncomeSnapshot,
+    +data.pensionContributionSnapshot
   )
   return response.ok(request.body)
 }

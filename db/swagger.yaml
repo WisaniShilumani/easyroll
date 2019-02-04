@@ -196,3 +196,9 @@ definitions:
         min: 1
         example: 6000
         description: The gross monthly income recorded on the the payslip
+      pensionContributionSnapshot:
+        type: 'integer'
+        min: 0
+        max: 50
+        example: 9
+        description: The pension contribution for the payslip

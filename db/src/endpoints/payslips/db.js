@@ -18,14 +18,19 @@ db.payslips = async (employeeId) => {
   }
 }
 
-db.createPayslip = async (employeeId, paymentDate, annualIncomeSnapshot) => {
+db.createPayslip = async (employeeId, paymentDate, annualIncomeSnapshot, pensionContributionSnapshot) => {
   try {
     const query = `
     INSERT INTO payslips
-    ("employeeId", "annualIncomeSnapshot", "paymentDate")
+    ("employeeId", "annualIncomeSnapshot", "paymentDate", "pensionContributionSnapshot")
     VALUES
-    (:employeeId, :annualIncomeSnapshot, :paymentDate)`
-    await db.dbQueries.insert(query, { employeeId, paymentDate, annualIncomeSnapshot }, dbQueries.db)
+    (:employeeId, :annualIncomeSnapshot, :paymentDate, :pensionContributionSnapshot)`
+
+    await db.dbQueries.insert(
+      query,
+      { employeeId, paymentDate, annualIncomeSnapshot, pensionContributionSnapshot },
+      dbQueries.db
+    )
 
     return {
       success: true,

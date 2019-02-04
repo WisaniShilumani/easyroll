@@ -4,4 +4,5 @@ export interface CreatePayslip {
   name: string
   startDate: Date
   annualIncomeSnapshot: number
+  pensionContributionSnapshot: number
 }

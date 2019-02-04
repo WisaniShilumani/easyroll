@@ -30,6 +30,7 @@ export class PayslipTableHeaderComponent implements OnInit {
           ...result,
           employeeId: this.employee.id,
           annualIncomeSnapshot: this.employee.annualIncome,
+          pensionContributionSnapshot: this.employee.pensionContribution,
           id: this.numPayslips
         })
       }

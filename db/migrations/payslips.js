@@ -18,6 +18,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      pensionContributionSnapshot: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       paymentDate: {
         type: Sequelize.DATE,
         allowNull: false

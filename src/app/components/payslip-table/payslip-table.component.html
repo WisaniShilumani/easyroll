@@ -7,7 +7,6 @@
     <payslip-row
       *ngFor="let payslip of payslips"
       [payslip]="payslip"
-      [pensionContribution]="employee.pensionContribution"
       [displayName]="displayName"
       [showDetails]="payslip.id === activePayslip"
       [class.active]="payslip.id === activePayslip"
