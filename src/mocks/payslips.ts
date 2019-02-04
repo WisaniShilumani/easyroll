@@ -6,13 +6,15 @@ const payslips: Payslip[] = [
     id: 2001,
     employeeId: 73,
     paymentDate: faker.date.between('2018-03-01', '2018-03-01'),
-    annualIncomeSnapshot: 60050
+    annualIncomeSnapshot: 60050,
+    pensionContributionSnapshot: 9
   },
   {
     id: 2002,
     employeeId: 74,
     paymentDate: faker.date.between('2018-03-01', '2019-03-01'),
-    annualIncomeSnapshot: 120000
+    annualIncomeSnapshot: 120000,
+    pensionContributionSnapshot: 10
   }
 ]
 
