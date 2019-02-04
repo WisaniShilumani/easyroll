@@ -27,8 +27,8 @@ This project encompasses the front and backend system for the employee payroll. 
 1. Open and start docker on your machine
 2. Navigate into /db and run `npm install`
 3. Still in the /db directory, and run `npm run images:up` in Terminal 1
-4. Once step 3 is complete, run `npm run db:init` in the same directory
-5. Finally, in the same directory, once step 4 is complete, run `npm run api:up`
+4. Once step 3 is complete, run `npm run db:init` in the same directory in Terminal 2
+5. Finally, in the same directory, once step 4 is complete, run `npm run api:up` in Terminal 2
 
 You should be able to access the database on localhost:8080.
 - username: admin
@@ -39,8 +39,8 @@ You should be able to access the database on localhost:8080.
 ================================================================================
 ### FRONTEND
 ================================================================================
-1. Navigate into the root folder and run `npm install`
-2. Run `npm run start` once the installation is complete
+1. Navigate into the root folder and run `npm install` in Terminal 3
+2. Run `npm run start` in Terminal 3 once the installation is complete
 3. Visit `http://localhost:4200` to interact with the frontend
 
 The following credentials (on by default) should let you access the employee list
