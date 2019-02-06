@@ -23,7 +23,6 @@
   "author": "Wisani Shilumani <wshilumani@gmail.com> (http://twitter.com/wisanishilumani)",
   "license": "ISC",
   "dependencies": {
-    "db:create": "sequelize db:create",
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.42.0",
